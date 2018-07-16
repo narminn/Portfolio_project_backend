@@ -1,0 +1,35 @@
+$backgroundcolor:#be9885;
+$navbarcolor:#111;
+$singleletter:#90423e;
+$logocolor:#d3cd9b;
+$textcolor:#ffdcb4;
+@import "projects";
+@import "viewbox";
+@import "singleproject";
+@import "about";
+@import "contact";
+@import "footer";
+@import "sidebar";
+@import "workshop";
+@import "press";
+
+body{
+  overflow-x: hidden;
+}
+
+._section_title{
+	hr{
+		width: 70px;
+		border-width: 3px;
+	}
+}
+  *{
+  	a{
+  		text-decoration: none;
+  		color: black;
+  		&:hover{
+  			text-decoration:none;
+  			color:black;
+  		}
+  	}
+  }

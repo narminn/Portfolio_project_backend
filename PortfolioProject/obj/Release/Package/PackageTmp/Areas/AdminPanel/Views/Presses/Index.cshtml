@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PortfolioProject.Models.Press>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.press_title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.press_keyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.press_img)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.press_title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.press_keyName)
+        </td>
+        <td>
+            <img src="@item.press_img" alt="Alternate Text" style="width:200px; height:200px;object-fit:cover" />
+
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

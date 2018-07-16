@@ -1,0 +1,40 @@
+﻿<div id="MySidenav" class="sidenav">
+    <span class="closebtn" onclick="closeNav()">&times;</span>
+    <a href="~/Home/Index"><h4>Gunel <br> <span>S</span>adikhova</h4></a>
+
+    <a href="~/Home/Index">@PortfolioProject.Resources.HomeTexts.Home</a>
+    <a href="~/Home/About">@PortfolioProject.Resources.HomeTexts.About</a>
+    <a href="~/Home/Projects">@PortfolioProject.Resources.HomeTexts.Projects</a>
+    <a href="~/Home/Workshops">@PortfolioProject.Resources.HomeTexts.Workshops</a>
+    <a href="~/Home/Press">@PortfolioProject.Resources.HomeTexts.Press</a>
+    <a href="~/Home/Contact">
+        <h6>@PortfolioProject.Resources.HomeTexts.Contact</h6>
+        @foreach (var item in Model._contact)
+                   {
+                        <p>@item.contact_email
+                        <br>
+                        @item.contact_main_phone
+                        <br>
+                        @item.contact_secod_phone
+                        <br>
+                        @item.list.content
+                    </p>
+                   }
+    </a>
+    <div class="language">
+        @Html.ActionLink("AZ", "Change", "Home", new { LanguageAbbrevation = "az" }, null)
+    </div>
+    <div class="language">
+        @Html.ActionLink("EN", "Change", "Home", new { LanguageAbbrevation = "en" }, null)
+    </div>
+    <div class="language">
+        @Html.ActionLink("RU", "Change", "Home", new { LanguageAbbrevation = "ru" }, null)
+    </div>
+    <div class="language">
+        @Html.ActionLink("FR", "Change", "Home", new { LanguageAbbrevation = "fr" }, null)
+    </div>
+
+
+
+
+</div>

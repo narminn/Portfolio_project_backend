@@ -1,0 +1,104 @@
+﻿@model PortfolioProject.Models.Workshop
+@using PortfolioProject.Models;
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Workshops", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Workshop</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.workshop_main_img, htmlAttributes: new { @class = "col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.workshop_main_img, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+            @Html.ValidationMessageFor(model => model.workshop_main_img, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.workshop_video, htmlAttributes: new { @class = "col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.workshop_video, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+            @Html.ValidationMessageFor(model => model.workshop_video, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <p style="font-size:20px;font-weight:bold">Create Keystring</p>
+
+
+    @foreach (Language item in ViewBag.langlist)
+    {
+        <div class="form-group">
+            <div class="col-md-2">
+                <label for="sel1">Select language:</label>
+            </div>
+            <div class="col-md-10">
+                <select class="form-control" id="sel1" name="langlist">
+                    <option value="@item.id">@item.language1</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2"><label>Title:</label></div>
+            <div class="col-md-10">
+
+                <input type="text" name="title" style="width:100%" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2"><label>Content:</label></div>
+            <div class="col-md-10">
+
+                <input type="text" name="content" style="width:100%" class="form-control" />
+            </div>
+        </div>
+    }
+    <p style="font-size:20px;font-weight:bold">Workshop Images</p>
+    <div class="imageForm">
+        <div class="form-group imgFrm">
+            <div class="col-md-2"><label>Image:</label></div>
+            <div class="col-md-8">
+
+                <input type="file" name="proj_image" style="width:100%" class="form-control" />
+            </div>
+            <div class="col-md-2">
+                <div class="btn btn-primary addButton"> + </div>
+                <div class="btn btn-primary removeButton"> - </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script>
+    $(".addButton").click(function (e) {
+        $(".imageForm").append("<div class='form-group frm1'><div class='col-md-offset-2 col-md-8'><input type='file' name='proj_image' class='form-control'/></div></div>");
+    })
+    $(".removeButton").click(function (e) {
+        $(".frm1:last-child").remove();
+    })
+
+</script>

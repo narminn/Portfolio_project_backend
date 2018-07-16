@@ -1,0 +1,40 @@
+﻿@model IEnumerable<PortfolioProject.Models.Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.slider_img)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.slider_keyName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="@item.slider_img" alt="Alternate Text" style="width:200px; height:200px;object-fit:cover"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.slider_keyName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

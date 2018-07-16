@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PortfolioDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="About">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="about_keyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="about_main_img" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AboutImages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="about_img" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="admin_username" Type="nvarchar" MaxLength="200" />
+    <Property Name="admin_password" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="AnimeImages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="anime_img" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="contact_keyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="contact_main_phone" Type="nvarchar(max)" />
+    <Property Name="contact_secod_phone" Type="nvarchar(max)" />
+    <Property Name="contact_email" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Keystring">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="language_id" Type="int" Nullable="false" />
+    <Property Name="keyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" />
+    <Property Name="content" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="language" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Press">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="press_title" Type="nvarchar(max)" />
+    <Property Name="press_keyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="press_img" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ProjectImages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="project_img" Type="nvarchar(max)" />
+    <Property Name="project_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="project_title" Type="nvarchar(max)" />
+    <Property Name="project_keyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="project_main_img" Type="nvarchar(max)" />
+    <Property Name="project_draft_img" Type="nvarchar(max)" />
+    <Property Name="project_video" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="slider_img" Type="nvarchar(max)" />
+    <Property Name="slider_keyName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WorkshopImages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="workshop_img" Type="nvarchar(max)" />
+    <Property Name="workshop_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Workshops">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="workshop_title" Type="nvarchar(max)" />
+    <Property Name="workshop_keyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="workshop_main_img" Type="nvarchar(max)" />
+    <Property Name="workshop_video" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_Keystring_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="Keystring" Type="Self.Keystring" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Keystring">
+        <PropertyRef Name="language_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectImages_Projects">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+    <End Role="ProjectImages" Type="Self.ProjectImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProjectImages">
+        <PropertyRef Name="project_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkshopImages_Workshops">
+    <End Role="Workshops" Type="Self.Workshops" Multiplicity="0..1" />
+    <End Role="WorkshopImages" Type="Self.WorkshopImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workshops">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="WorkshopImages">
+        <PropertyRef Name="workshop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="FindWords" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="lanId" Type="int" Mode="In" />
+    <Parameter Name="key" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="PortfolioDbModelStoreContainer">
+    <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AboutImages" EntityType="Self.AboutImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnimeImages" EntityType="Self.AnimeImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Keystring" EntityType="Self.Keystring" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Press" EntityType="Self.Press" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectImages" EntityType="Self.ProjectImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkshopImages" EntityType="Self.WorkshopImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Workshops" EntityType="Self.Workshops" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Keystring_Languages" Association="Self.FK_Keystring_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Keystring" EntitySet="Keystring" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectImages_Projects" Association="Self.FK_ProjectImages_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="ProjectImages" EntitySet="ProjectImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkshopImages_Workshops" Association="Self.FK_WorkshopImages_Workshops">
+      <End Role="Workshops" EntitySet="Workshops" />
+      <End Role="WorkshopImages" EntitySet="WorkshopImages" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

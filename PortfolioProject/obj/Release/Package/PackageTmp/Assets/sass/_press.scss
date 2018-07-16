@@ -1,0 +1,42 @@
+#Presse{
+	width: 100%;
+	padding: 40px 0;
+	._presse_content{
+		padding: 40px 0px;
+		._press_img{
+			width: 100%;
+			margin-bottom: 100px;
+			img{
+				width: 100%;
+        height: 150px;
+        object-fit: cover;
+        transition: 1s ease;
+        filter: brightness(50%);
+        &:hover{
+          filter: brightness(100%);
+        }
+			}
+			// ._hover_img{
+			//     position: absolute;
+			//     top: 0;
+			//     left: 0;
+			//     width: 100%;
+			//     height: 100%;
+			//     // background: rgba(10, 9, 9, 0.7);
+			//     display: flex;
+			//     align-items: center;
+			//     justify-content: center;
+			//     opacity: 0;
+			//     color: white;
+			//     transition: all 0.5s linear;
+			//     &:hover{
+      //
+      //       img{
+      //         filter: grayscale(100%);
+      //       }
+      //
+			//     }
+			// }
+		}
+	}
+}

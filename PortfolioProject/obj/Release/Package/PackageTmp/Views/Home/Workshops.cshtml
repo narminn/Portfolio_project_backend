@@ -1,0 +1,35 @@
+﻿@model PortfolioProject.ViewModel.WorkshopModel
+@{
+    ViewBag.Title = "Workshops";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+        <section id="WorkShop">
+            <div class="container">
+                <div class="_section_title text-center">
+                    <a href="#">
+                        <h2>@PortfolioProject.Resources.HomeTexts.Workshops</h2>
+                    </a>
+                    <hr>
+                </div>
+                <div class="row _workshop_content">
+                    @foreach (var item in Model._workshop)
+    {
+                <div class="col-md-4">
+                    <a href="~/Home/SingleWorkshop/@item.id">
+                        <div class="_img_workshop">
+                            <img src="@item.workshop_main_img" alt="">
+                            <div class="_layout_workwhop">
+                                <h3>@item.list.title</h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+}
+                </div>
+            </div>
+        </section>
+
+
+

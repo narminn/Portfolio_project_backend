@@ -1,0 +1,65 @@
+﻿@model PortfolioProject.Models.Slider
+@using PortfolioProject.Models
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "Sliders", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Slider</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.slider_img, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.slider_img, new { htmlAttributes = new { @class = "form-control",@type="file" } })
+                @Html.ValidationMessageFor(model => model.slider_img, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        @foreach (Keystring item in ViewBag.KeyWords)
+        {
+            <div class="form-group">
+                <div class="col-md-2">
+                    <label for="sel1">Select language:</label>
+                </div>
+                <div class="col-md-10">
+                    <p>@item.Language.language1</p>
+                    <select style="display:none" class="form-control" id="sel1" name="langlist">
+                        <option value="@item.Language.id">@item.Language.language1</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2"><label>Content</label></div>
+                <div class="col-md-10">
+
+                    <input type="text" value="@item.content" name="content" style="width:100%" class="form-control" />
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

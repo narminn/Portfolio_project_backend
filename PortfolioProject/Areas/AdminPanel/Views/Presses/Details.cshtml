@@ -1,0 +1,43 @@
+﻿@model PortfolioProject.Models.Press
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Press</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.press_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.press_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.press_keyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.press_keyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.press_img)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.press_img)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

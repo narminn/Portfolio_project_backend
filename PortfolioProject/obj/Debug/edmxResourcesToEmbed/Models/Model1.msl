@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PortfolioDbModelStoreContainer" CdmEntityContainer="PortfolioDbEntities">
+    <EntitySetMapping Name="Abouts">
+      <EntityTypeMapping TypeName="PortfolioDbModel.About">
+        <MappingFragment StoreEntitySet="About">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="about_keyName" ColumnName="about_keyName" />
+          <ScalarProperty Name="about_main_img" ColumnName="about_main_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AboutImages">
+      <EntityTypeMapping TypeName="PortfolioDbModel.AboutImage">
+        <MappingFragment StoreEntitySet="AboutImages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="about_img" ColumnName="about_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="PortfolioDbModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="admin_username" ColumnName="admin_username" />
+          <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnimeImages">
+      <EntityTypeMapping TypeName="PortfolioDbModel.AnimeImage">
+        <MappingFragment StoreEntitySet="AnimeImages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="anime_img" ColumnName="anime_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="PortfolioDbModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="contact_keyName" ColumnName="contact_keyName" />
+          <ScalarProperty Name="contact_main_phone" ColumnName="contact_main_phone" />
+          <ScalarProperty Name="contact_secod_phone" ColumnName="contact_secod_phone" />
+          <ScalarProperty Name="contact_email" ColumnName="contact_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Keystrings">
+      <EntityTypeMapping TypeName="PortfolioDbModel.Keystring">
+        <MappingFragment StoreEntitySet="Keystring">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="language_id" ColumnName="language_id" />
+          <ScalarProperty Name="keyName" ColumnName="keyName" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="content" ColumnName="content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="PortfolioDbModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="language1" ColumnName="language" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Presses">
+      <EntityTypeMapping TypeName="PortfolioDbModel.Press">
+        <MappingFragment StoreEntitySet="Press">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="press_title" ColumnName="press_title" />
+          <ScalarProperty Name="press_keyName" ColumnName="press_keyName" />
+          <ScalarProperty Name="press_img" ColumnName="press_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectImages">
+      <EntityTypeMapping TypeName="PortfolioDbModel.ProjectImage">
+        <MappingFragment StoreEntitySet="ProjectImages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="project_img" ColumnName="project_img" />
+          <ScalarProperty Name="project_id" ColumnName="project_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="PortfolioDbModel.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="project_video" ColumnName="project_video" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="project_title" ColumnName="project_title" />
+          <ScalarProperty Name="project_keyName" ColumnName="project_keyName" />
+          <ScalarProperty Name="project_main_img" ColumnName="project_main_img" />
+          <ScalarProperty Name="project_draft_img" ColumnName="project_draft_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sliders">
+      <EntityTypeMapping TypeName="PortfolioDbModel.Slider">
+        <MappingFragment StoreEntitySet="Slider">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="slider_img" ColumnName="slider_img" />
+          <ScalarProperty Name="slider_keyName" ColumnName="slider_keyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkshopImages">
+      <EntityTypeMapping TypeName="PortfolioDbModel.WorkshopImage">
+        <MappingFragment StoreEntitySet="WorkshopImages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="workshop_img" ColumnName="workshop_img" />
+          <ScalarProperty Name="workshop_id" ColumnName="workshop_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workshops">
+      <EntityTypeMapping TypeName="PortfolioDbModel.Workshop">
+        <MappingFragment StoreEntitySet="Workshops">
+          <ScalarProperty Name="workshop_video" ColumnName="workshop_video" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="workshop_title" ColumnName="workshop_title" />
+          <ScalarProperty Name="workshop_keyName" ColumnName="workshop_keyName" />
+          <ScalarProperty Name="workshop_main_img" ColumnName="workshop_main_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="FindWords" FunctionName="PortfolioDbModel.Store.FindWords">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PortfolioDbModel.FindWords_Result">
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="language" ColumnName="language" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

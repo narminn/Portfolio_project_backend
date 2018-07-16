@@ -1,0 +1,35 @@
+﻿@model PortfolioProject.ViewModel.PressModel
+@{
+    ViewBag.Title = "Press";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+        <section id="Presse">
+            <div class="container">
+                <div class="text-center _section_title">
+                    <a href="#">
+                        <h2>@PortfolioProject.Resources.HomeTexts.Press</h2>
+                    </a>
+                    <hr>
+                </div>
+                <div class="row _presse_content">
+                   @foreach (var item in Model._press)
+                   {
+                        <div class="col-md-4">
+                        <a href="~/Home/SinglePress/@item.id">
+                            <div class="_press_img">
+                                <img src="@item.press_img" alt="">
+                                <!-- <div class="_hover_img">
+                                  <h2>salam</h2>
+                                </div> -->
+                            </div>
+                        </a>
+                    </div>
+                   }
+                   
+                </div>
+            </div>
+</section>
+
+

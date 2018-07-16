@@ -1,0 +1,62 @@
+﻿<!-- Footer -->
+<footer id="Footer">
+    <div class="container">
+        <div class="row _footter_content">
+            <div class="col-md-4">
+                <div class="_left_part _part_common_css">
+                    <a href="index.html"><h5>Gunel  <span>S</span>adikhova</h5></a>
+                    <div>
+                        <ul>
+                            <li>architecture</li>
+                            <li>urbanisme</li>
+                            <li>prospective urbaine</li>
+                            <li>identités paysagères et territoriales</li>
+                            <li>études d'aménagement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="_middle_part _part_common_css">
+                    <h5>@PortfolioProject.Resources.HomeTexts.Contact</h5>
+                   @foreach (var item in Model._contact)
+                   {
+                        <p>@item.contact_email
+                        <br>
+                        @item.contact_main_phone
+                        <br>
+                        @item.contact_secod_phone
+                        <br>
+                        @item.list.content
+                    </p>
+                   }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="_right_part _part_common_css">
+                    <a href="~/Home/Index"><h5>@PortfolioProject.Resources.HomeTexts.Home</h5></a>
+                    <div>
+                        <ul>
+                            <a href="~/Home/About">
+                                <li>@PortfolioProject.Resources.HomeTexts.About</li>
+                            </a>
+                            <a href="~/Home/Projects">
+                                <li>@PortfolioProject.Resources.HomeTexts.Projects</li>
+                            </a>
+                            <a href="~/Home/Workshops">
+                                <li>@PortfolioProject.Resources.HomeTexts.Workshops</li>
+                            </a>
+                            <a href="~/Home/Press">
+                                <li>@PortfolioProject.Resources.HomeTexts.Press</li>
+                            </a>
+                            <a href="~/Home/Contact">
+                                <li>@PortfolioProject.Resources.HomeTexts.Contact</li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->

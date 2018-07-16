@@ -1,0 +1,149 @@
+#projects{
+  width: 100%;
+  padding: 40px 0;
+  position: relative;
+  h1{
+    text-align: center;
+  }
+  .item{
+   width: 340px;
+    float: left;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: .7s ease;
+      &:hover{
+        filter: grayscale(0%);
+      }
+    }
+  }
+  ._anime_main{
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		img{
+			width: 100%;
+		}
+	}
+  ._anime_tr{
+		top:2%;
+		right: 38%;
+		animation: anime_tr 50s linear infinite;
+
+	}
+	._anime_tl{
+		top:2%;
+		left: 38%;
+		animation: anime_tl 50s linear infinite;
+	}
+	._anime_ml{
+		top:37%;
+		left: 2%;
+		animation: anime_ml 50s linear infinite;
+	}
+	._anime_mr{
+		top:37%;
+		right: 4%;
+		animation: anime_mr 50s linear infinite;
+	}
+	._anime_fl{
+		top:47.7%;
+		left: 2%;
+		animation: anime_fl 50s linear infinite;
+	}
+	._anime_fr{
+		top:47.7%;
+		right: 4%;
+		animation: anime_fr 50s linear infinite;
+	}
+}
+@keyframes anime_tl{
+	0%{
+		left: 38%;
+		top: 2%;
+	}
+	50%{
+		left: 10.4%;
+		top: 2%;
+	}
+	100%{
+		left: 38%;
+		top: 2%;
+	}
+}
+
+@keyframes anime_tr{
+	0%{
+		right: 38%;
+		top: 2%;
+	}
+	50%{
+		right: 12.5%;
+		top: 2%;
+	}
+	100%{
+		right: 38%;
+		top: 2%;
+	}
+}
+@keyframes anime_mr{
+	0%{
+		right: 4%;
+		top: 37%;
+	}
+	50%{
+		right: 4%;
+		top: 2%;
+	}
+	100%{
+		right: 4%;
+		top: 37%;
+	}
+}
+@keyframes anime_ml{
+	0%{
+		left: 2%;
+		top: 37%;
+	}
+	50%{
+		left: 2%;
+		top: 2%;
+	}
+	100%{
+		left: 2%;
+		top: 37%;
+	}
+}
+@keyframes anime_fl{
+	0%{
+		top:47.7%;
+		left: 2%;
+	}
+	50%{
+		top:82.7%;
+		left: 2%;
+	}
+	100%{
+		top:47.7%;
+		left: 2%;
+	}
+}
+@keyframes anime_fr{
+	0%{
+		top:47.7%;
+		right: 4%;
+	}
+	50%{
+		top:82.7%;
+		right: 4%;
+	}
+	100%{
+		top:47.7%;
+		right: 4%;
+	}
+}

@@ -1,0 +1,41 @@
+﻿@model PortfolioProject.ViewModel.AboutModel
+@{
+    ViewBag.Title = "About";
+}
+
+        <section id="about">
+            <h1>@PortfolioProject.Resources.HomeTexts.About</h1>
+            <div class="container">
+                @foreach (var item in Model._about)
+    {
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="aboutImg">
+                        <img src="@item.about_main_img" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="aboutText">
+                        <p>@item.list.content</p>
+                    </div>
+                </div>
+            </div>
+}
+                <div class="row">
+                    @foreach (var item in Model._about_img)
+                    {
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+                        <div class="single">
+                            <a href="@item.about_img" class="thumbnail">
+                                <img src="@item.about_img">
+                            </a>
+                        </div>
+                    </div>
+                    }
+                    
+                </div>
+            </div>
+        </section>
+    
+

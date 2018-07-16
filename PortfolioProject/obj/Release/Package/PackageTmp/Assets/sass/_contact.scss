@@ -1,0 +1,107 @@
+#contact{
+  width: 100%;
+  padding: 40px 0px;
+  .offer{
+    width: 50%;
+    background-color: gray;
+    border-radius: 40px;
+    color: white;
+    padding: 10px 50px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 40px;
+    &:hover{
+      background-color: darkgray;
+    }
+  }
+  .mainImg{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        margin-bottom: 40px;
+        filter: grayscale(100%);
+  }
+  .contactInfo{
+    width: 100%;
+    padding: 20px;
+    .infoTitle{
+      width: 100%;
+      height: 160px;
+      h3{
+        color:#969fa8;
+
+      }
+      p{
+        font-size: 18px;
+      }
+    }
+    .infoContent{
+      width: 100%;
+      height: 300px;
+      .info{
+        width: 100%;
+        height: 100px;
+        .image{
+          float: left;
+          margin-right: 20px;
+          height: 50px;
+          filter: grayscale(100%);
+          cursor: pointer;
+          transition: .7s ease;
+          &:hover{
+            filter: grayscale(0%);
+          }
+        }
+        .text{
+          float:left;
+          h5{
+            margin: 5px 0px;
+            color: darkgray;
+          }
+          p{
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
+  .contactForm{
+    width: 100%;
+    padding: 60px 20px;
+    h4{
+      text-align: center;
+    }
+    form{
+      margin-top: 40px;
+
+      textarea{
+        padding: 5px 15px;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+      }
+      .contactBtn{
+        width: 100%;
+        background-color: gray;
+        border-radius: 40px;
+        color: white;
+        padding: 10px 50px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-top: 40px;
+        
+        &:hover{
+          background-color: darkgray;
+        }
+      }
+      input{
+        width: 100%;
+        padding: 5px 15px;
+        background-color: transparent;
+        box-shadow: none;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+      }
+
+    }
+  }
+}

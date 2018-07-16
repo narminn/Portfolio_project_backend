@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PortfolioDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="About">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="about_keyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="about_main_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AboutImage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="about_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="admin_username" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="admin_password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AnimeImage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="anime_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="contact_keyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contact_main_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="contact_secod_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="contact_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Keystring">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="language_id" Type="Int32" Nullable="false" />
+    <Property Name="keyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Language" Relationship="Self.FK_Keystring_Languages" FromRole="Keystring" ToRole="Languages" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="language1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Keystrings" Relationship="Self.FK_Keystring_Languages" FromRole="Languages" ToRole="Keystring" />
+  </EntityType>
+  <EntityType Name="Press">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="press_title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="press_keyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="press_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ProjectImage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="project_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="project_id" Type="Int32" />
+    <NavigationProperty Name="Project" Relationship="Self.FK_ProjectImages_Projects" FromRole="ProjectImages" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="project_title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="project_keyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="project_main_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="project_draft_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProjectImages" Relationship="Self.FK_ProjectImages_Projects" FromRole="Projects" ToRole="ProjectImages" />
+    <Property Name="project_video" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="slider_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slider_keyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="WorkshopImage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="workshop_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="workshop_id" Type="Int32" />
+    <NavigationProperty Name="Workshop" Relationship="Self.FK_WorkshopImages_Workshops" FromRole="WorkshopImages" ToRole="Workshops" />
+  </EntityType>
+  <EntityType Name="Workshop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="workshop_title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="workshop_keyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="workshop_main_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="WorkshopImages" Relationship="Self.FK_WorkshopImages_Workshops" FromRole="Workshops" ToRole="WorkshopImages" />
+    <Property Name="workshop_video" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Keystring_Languages">
+    <End Role="Languages" Type="Self.Language" Multiplicity="1" />
+    <End Role="Keystring" Type="Self.Keystring" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Keystring">
+        <PropertyRef Name="language_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectImages_Projects">
+    <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+    <End Role="ProjectImages" Type="Self.ProjectImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProjectImages">
+        <PropertyRef Name="project_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkshopImages_Workshops">
+    <End Role="Workshops" Type="Self.Workshop" Multiplicity="0..1" />
+    <End Role="WorkshopImages" Type="Self.WorkshopImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workshops">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="WorkshopImages">
+        <PropertyRef Name="workshop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PortfolioDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Abouts" EntityType="Self.About" />
+    <EntitySet Name="AboutImages" EntityType="Self.AboutImage" />
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="AnimeImages" EntityType="Self.AnimeImage" />
+    <EntitySet Name="Contacts" EntityType="Self.Contact" />
+    <EntitySet Name="Keystrings" EntityType="Self.Keystring" />
+    <EntitySet Name="Languages" EntityType="Self.Language" />
+    <EntitySet Name="Presses" EntityType="Self.Press" />
+    <EntitySet Name="ProjectImages" EntityType="Self.ProjectImage" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <EntitySet Name="Sliders" EntityType="Self.Slider" />
+    <EntitySet Name="WorkshopImages" EntityType="Self.WorkshopImage" />
+    <EntitySet Name="Workshops" EntityType="Self.Workshop" />
+    <AssociationSet Name="FK_Keystring_Languages" Association="Self.FK_Keystring_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Keystring" EntitySet="Keystrings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectImages_Projects" Association="Self.FK_ProjectImages_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="ProjectImages" EntitySet="ProjectImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkshopImages_Workshops" Association="Self.FK_WorkshopImages_Workshops">
+      <End Role="Workshops" EntitySet="Workshops" />
+      <End Role="WorkshopImages" EntitySet="WorkshopImages" />
+    </AssociationSet>
+    <FunctionImport Name="FindWords" ReturnType="Collection(PortfolioDbModel.FindWords_Result)">
+      <Parameter Name="lanId" Mode="In" Type="Int32" />
+      <Parameter Name="key" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(PortfolioDbModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(PortfolioDbModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="FindWords_Result">
+    <Property Type="String" Name="title" Nullable="true" />
+    <Property Type="String" Name="content" Nullable="true" />
+    <Property Type="String" Name="language" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

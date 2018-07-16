@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PortfolioProject.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.project_main_img)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.project_draft_img)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.project_video)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            <img src="@item.project_main_img" alt="Alternate Text" style="width:200px; height:200px;object-fit:cover" />
+
+        </td>
+        <td>
+            <img src="@item.project_draft_img" alt="Alternate Text" style="width:200px; height:200px;object-fit:cover" />
+
+        </td>
+        <td>
+            <video width="400" controls>
+                <source src="@item.project_video" type="video/mp4">
+            </video>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
